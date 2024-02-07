@@ -7,6 +7,26 @@
 
 <link rel="stylesheet" href="./css/style.css">
 <script type="module" src="./js/script.js">
+     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <div>
+      Video URL: <input type="text" id="videoUrl" name="videoUrl">
+    </div>
+    <br />
+    <div>
+      <video width="640" height="480" id="video" controls>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <script type="text/javascript">
+      $( document ).ready(function() {
+        $('#videoUrl').on('change', function(e) {
+          var video = $('#video');
+          video.children('source').attr('src', $(this).val());
+          video[0].load();
+          video[0].play();
+        });
+      });
     </script>
   </head>
   
